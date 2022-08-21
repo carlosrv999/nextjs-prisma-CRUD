@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { prisma } from "../../lib/prisma"
 
 type Data = {
-  name: string
+  name: any
 }
 
 export default async function handler(
@@ -19,9 +19,9 @@ export default async function handler(
         content
       }
     })
-    res.status(200).json({ message: 'Note created' })
+    res.status(200).json({ name: 'Note created' })
   } catch (error) {
     console.log(error)
-    res.status(400).json({ message: error })
+    res.status(400).json({ name: error })
   }
 }
